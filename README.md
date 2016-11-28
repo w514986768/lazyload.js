@@ -5,6 +5,7 @@
 公共class:"lazy",如果是图片需要增加data-src="图片路径";
 参数,distance:距离多远距离开始加载;
 
+<code>
 <script src="Lazyload.js"></script>
 <div class="screen"><img data-src="banner1.jpg" class="lazy"></div>
 <div class="screen"><img data-src="banner2.jpg" class="lazy"></div>
@@ -14,3 +15,4 @@
 <script>
     var lazy = new Lazyload({distance: 500})
 </script>
+</code>
