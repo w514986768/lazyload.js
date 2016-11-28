@@ -19,10 +19,6 @@
     }
 
     Lazyload.prototype.init = function () {
-        if (!this.elements.length) {
-            return
-        }
-
         this.destoryElementIfInScreen();
 
         var timer, self = this;
@@ -42,6 +38,10 @@
 
     //is in screen
     Lazyload.prototype.destoryElementIfInScreen = function () {
+        if (!this.elements.length) {
+            return
+        }
+
         var h = window.innerHeight || document.documentElement.clientHeight;
 
         for (var i = 0, len = this.elements.length; i < len; i++) {
