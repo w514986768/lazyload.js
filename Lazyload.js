@@ -75,13 +75,6 @@
 
     //return dom array
     function $(query) {
-        var elements = document.querySelectorAll(query),
-            ret = [];
-
-        for(var i = 0, len = elements.length; i < len; i++){
-            ret.push(elements[i]);
-        }
-
-        return ret
+        return [].slice.call(document.querySelectorAll(query));
     }
 }(window);
