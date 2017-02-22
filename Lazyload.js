@@ -9,27 +9,21 @@
     function Lazyload(opts) {
         this.distance = 200;
         this.elements = $("img.lazy,textarea.lazy");
-
         for (var key in opts) {
             this[key] = opts[key];
         }
-
         this.init();
     }
 
     Lazyload.prototype.init = function () {
         this.destoryElementIfInScreen();
-
         var self = this;
-
         function scrollFun() {
             self.destoryElementIfInScreen()
         }
-        
         function resizeFun() {
             self.destoryElementIfInScreen()
         }
-        
         addEventListener("scroll", throttle(scrollFun, 30, 30));
         addEventListener("resize", throttle(resizeFun, 30, 30))
     };
@@ -39,13 +33,10 @@
         if (!this.elements.length) {
             return
         }
-
         var h = window.innerHeight || document.documentElement.clientHeight;
-
         for (var i = 0, len = this.elements.length; i < len; i++) {
             var tag = this.elements[i];
             var rect = tag.getBoundingClientRect();
-
             if ((h + this.distance) > rect.top) {
                 this.loadImg(tag);
                 this.elements.splice(i, 1);
@@ -64,7 +55,6 @@
             var val = ele.value, parentNode = ele.parentNode;
             parentNode.innerHTML = val;
         }
-
     };
 
     function addEventListener(evt, fn) {
@@ -88,7 +78,7 @@
             var context = this,
                 args = arguments,
                 curTime = new Date();
-            clearTimeout(timeout);
+            timeout && clearTimeout(timeout);
             // 如果达到了规定的触发时间间隔，触发 handler
             if (curTime - startTime >= time) {
                 fun.apply(context, args);
